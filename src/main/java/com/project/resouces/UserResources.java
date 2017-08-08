@@ -33,6 +33,7 @@ import java.util.Locale;
  * Created by abdullah.alnoman on 05.08.17.
  */
 @RestController
+@RequestMapping("/v1")
 public class UserResources {
 
 
@@ -91,31 +92,6 @@ public class UserResources {
         // If a user exist with the userID the it will return the user otherwise throw ResourceNotFoundException
         validationHelper.isUserFound(userID, locale);
         GetProfileDTO profile = userService.getProfile(userID);
-        return new ResponseEntity<>(new Response(StatusType.OK, profile), HttpStatus.OK);
-    }
-
-    /**
-     * @param loginDTO
-     * @param locale
-     * @return
-     */
-    @RequestMapping(
-            value = "/users/login",
-            method = RequestMethod.POST)
-
-    public ResponseEntity<?> login(@Valid @RequestBody LoginDTO loginDTO, Locale locale) {
-        logger.debug("Inside Login resource method");
-        // If a user exist with the userID the it will return the user otherwise throw ResourceNotFoundException
-        User user = validationHelper.isUserFound(loginDTO.getUserId(), locale);
-//        User user = userService.getUserByUserNameOrEmail(loginDTO.getUserId());
-        GetProfileDTO profile;
-        //if ((user != null) && (loginDTO.getPassword() != null)) {
-        if (passwordEncoder.matches(loginDTO.getPassword(), user.getPassword())) {
-            profile = userService.getProfile(loginDTO.getUserId());
-        } else {
-            throw new BadRequestException(messageSource.getMessage("message.invalidCredentials", null, locale));
-        }
-
         return new ResponseEntity<>(new Response(StatusType.OK, profile), HttpStatus.OK);
     }
 

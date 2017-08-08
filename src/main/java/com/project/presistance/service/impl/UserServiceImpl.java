@@ -36,13 +36,9 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
 
-
-    private ModelMapper modelMapper = new ModelMapper();
-    /*
-	@Autowired
-	private SubscriberService subscriberService;
     @Autowired
-    private ReviewService reviewService;*/
+    private ModelMapper modelMapper;
+
 
     @Override
     public User createUser(CreateUserDTO userDTO) {
@@ -62,7 +58,6 @@ public class UserServiceImpl implements UserService {
     public GetProfileDTO getProfile(String userID) {
         User user = userRepository.findOne(userID);
         GetProfileDTO profile = modelMapper.map(user, GetProfileDTO.class);
-
         return profile;
     }
 

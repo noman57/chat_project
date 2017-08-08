@@ -57,7 +57,7 @@ public class DataLoader {
             User adminUser=userRepository.findByUsername("admin");
             adminUser.setUsername("admin");
 
-            adminUser.setEmail("3dsecurityinc@gmail.com");
+            adminUser.setEmail("noman7119@gmail.com");
             userRepository.save(adminUser);
 
         }
@@ -81,5 +81,8 @@ public class DataLoader {
         }
 
     }
+
+
+
 
 }
