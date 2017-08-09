@@ -15,7 +15,7 @@ To run the application please follow this steps
 		
 		
 		I dont consider this application bulletproof . Due to
-		 lack of time I just touched the concepst os Dependency injection ,
+		 lack of time I just touched  concepst like Dependency injection ,
 		 STOMP , Unit testing and Integration Testing .
 
 
@@ -25,6 +25,8 @@ To run the application please follow this steps
 
 Some of my live projects are [ Tudex](http://www.tudex.com.au/) [ Ufril](http://www.ufriil.com/) [ Revechat](https://www.revechat.com/) 
 
+
+Fell free to come back to me for any further queries . 
 
 ### Authors
 For more info contact me 
