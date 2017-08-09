@@ -88,8 +88,6 @@ public class UserResources {
     )
 
     public ResponseEntity<?> getUserProfile(@PathVariable("userID") final String userID, Locale locale) {
-//        ResourceUtils.userNotExist(userService, messageSource, userID, locale);
-        // If a user exist with the userID the it will return the user otherwise throw ResourceNotFoundException
         validationHelper.isUserFound(userID, locale);
         GetProfileDTO profile = userService.getProfile(userID);
         return new ResponseEntity<>(new Response(StatusType.OK, profile), HttpStatus.OK);
